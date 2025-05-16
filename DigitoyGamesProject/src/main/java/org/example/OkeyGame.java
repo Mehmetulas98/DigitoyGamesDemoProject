@@ -273,16 +273,17 @@ public class OkeyGame {
         System.out.println("====================================");
     }
 
+    // Bütün oyuncular üzerinde dönen ve kazananma potansiyeli yüksek olan oyuncuları hesaplayan fonksiyon.
     private void determineWinner() {
         int maxScore = -1;
         List<Integer> winners = new ArrayList<>();
-
+        // Seri ve çifte gitmeye göre iki durum için de hesaplama yapılır.
         for (int i = 0; i < players.size(); i++) {
             int score = Math.max(
                     calculateSeriesScore(players.get(i)),
                     calculatePairsScore(players.get(i))
             );
-
+            // En yüksek skoru bulmak için olan kısım.
             if (score > maxScore) {
                 maxScore = score;
                 winners.clear();
